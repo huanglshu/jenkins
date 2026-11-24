@@ -1,0 +1,52 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Jenkins: 安装前端依赖",
+      "type": "shell",
+      "command": "C:/nvm4w/nodejs/yarn.cmd",
+      "args": ["install", "--immutable"],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PATH": "C:/nvm4w/nodejs;${env:PATH}"
+        }
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Jenkins: 构建前端",
+      "type": "shell",
+      "command": "C:/nvm4w/nodejs/yarn.cmd",
+      "args": ["build"],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PATH": "C:/nvm4w/nodejs;${env:PATH}"
+        }
+      },
+      "dependsOn": "Jenkins: 安装前端依赖",
+      "problemMatcher": []
+    },
+    {
+      "label": "Jenkins: 构建 WAR",
+      "type": "shell",
+      "command": "H:/Develop/Java/maven/apache-maven-3.9.6/bin/mvn.cmd",
+      "args": [
+        "-am", "-pl", "war,bom", "-Pquick-build",
+        { "value": "-Dskip.frontend=true", "quoting": "strong" },
+        "install"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "JAVA_HOME": "H:/Develop/Java/win_jdk/jdk21.0.13_1",
+          "MAVEN_ARGS": "-s H:/Develop/Java/maven/alphax-test-settings.xml"
+        }
+      },
+      "dependsOn": "Jenkins: 构建前端",
+      "group": "build",
+      "problemMatcher": []
+    }
+  ]
+}

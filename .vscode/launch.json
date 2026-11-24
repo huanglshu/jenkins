@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Jenkins: 运行 / 调试",
+      "type": "java",
+      "request": "launch",
+      "mainClass": "executable.Main",
+      "javaExec": "H:/Develop/Java/win_jdk/jdk21.0.13_1/bin/java.exe",
+      "classPaths": ["${workspaceFolder}/war/target/jenkins.war"],
+      "sourcePaths": [
+        "${workspaceFolder}/war/src/main/java",
+        "${workspaceFolder}/core/src/main/java"
+      ],
+      "args": ["--prefix=/jenkins"],
+      "env": {
+        "JENKINS_HOME": "${workspaceFolder}/war/work"
+      },
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "stopOnEntry": false,
+      "preLaunchTask": "Jenkins: 构建 WAR"
+    }
+  ]
+}
