@@ -1,0 +1,24 @@
+{
+  "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-21",
+      "path": "H:/Develop/Java/win_jdk/jdk21.0.13_1",
+      "default": true
+    }
+  ],
+  "java.configuration.maven.userSettings": "H:/Develop/Java/maven/alphax-test-settings.xml",
+  "java.configuration.maven.globalSettings": "H:/Develop/Java/maven/alphax-test-settings.xml",
+  "maven.executable.path": "H:/Develop/Java/maven/apache-maven-3.9.6/bin/mvn.cmd",
+  "maven.executable.options": "-s H:/Develop/Java/maven/alphax-test-settings.xml",
+  "maven.terminal.customEnv": [
+    {
+      "environmentVariable": "JAVA_HOME",
+      "value": "H:/Develop/Java/win_jdk/jdk21.0.13_1"
+    }
+  ],
+  "terminal.integrated.env.windows": {
+    "JAVA_HOME": "H:/Develop/Java/win_jdk/jdk21.0.13_1",
+    "MAVEN_ARGS": "-s H:/Develop/Java/maven/alphax-test-settings.xml",
+    "PATH": "H:/Develop/Java/win_jdk/jdk21.0.13_1/bin;H:/Develop/Java/maven/apache-maven-3.9.6/bin;${env:PATH}"
+  }
+}
