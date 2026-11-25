@@ -6,7 +6,7 @@
       "type": "java",
       "request": "launch",
       "mainClass": "executable.Main",
-      "javaExec": "H:/Develop/Java/win_jdk/jdk21.0.13_1/bin/java.exe",
+      "javaExec": "${workspaceFolder}/.vscode/target/jenkins-jdk/bin/java.exe",
       "classPaths": ["${workspaceFolder}/war/target/jenkins.war"],
       "sourcePaths": [
         "${workspaceFolder}/war/src/main/java",
@@ -26,7 +26,7 @@
       "type": "java",
       "request": "launch",
       "mainClass": "executable.Main",
-      "javaExec": "H:/Develop/Java/win_jdk/jdk21.0.13_1/bin/java.exe",
+      "javaExec": "${workspaceFolder}/.vscode/target/jenkins-jdk/bin/java.exe",
       "classPaths": ["${workspaceFolder}/war/target/jenkins.war"],
       "sourcePaths": [
         "${workspaceFolder}/war/src/main/java",
@@ -38,7 +38,11 @@
       },
       "cwd": "${workspaceFolder}",
       "console": "integratedTerminal",
-      "stopOnEntry": false
+      "stopOnEntry": false,
+      "preLaunchTask": "Jenkins: 准备 JDK"
     }
   ]
 }
+// PowerShell 示例：先完成前端构建，再执行 Maven。
+// $env:JAVA_HOME = "E:/Java/win_jdk/corretto-21.0.5"
+// mvn.cmd -s "E:/Java/maven/maven-setting/alphax-test-settings.xml" -am -pl "war,bom" -Pquick-build '-Dskip.frontend=true' install
